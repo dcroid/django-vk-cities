@@ -1,6 +1,7 @@
 *.py[codw]
 
 *.egg-info
+*.sqlite
 build
 dist
 .tox
