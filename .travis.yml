@@ -1,0 +1,7 @@
+language: python
+python:
+  - "3.4"
+install: "pip install -r dev.requirements.txt"
+script: tox
+after_success:
+  - coveralls

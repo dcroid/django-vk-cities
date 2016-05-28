@@ -1,0 +1,7 @@
+*.py[codw]
+
+*.egg-info
+build
+dist
+.tox
+.coverage

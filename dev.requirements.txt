@@ -1,0 +1,6 @@
+coverage
+django > 1.9
+nose
+tox
+
+-r requirements.txt
