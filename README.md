@@ -8,10 +8,19 @@
 
 `pip install django-vk-cities`
 
+Add `vk_cities` to `INSTALLED_APPS`.
+
+After run:
+```bash
+python manage.py migrate
+python manage.py vk_cities download
+```
+
 ## Configuration ##
 
 Package using next settings variable:
 ```python
+LANGUAGE_CODE = 'en-US'  # places names language
 VK_CITIES_COUNTRIES = ['RU', 'UA']  # countries codes from ISO 3166-1
 ```
 
