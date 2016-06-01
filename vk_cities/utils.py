@@ -36,7 +36,7 @@ def download_countries(codes, language, update=False):
 
                 logger.info('Updated country: {}'.format(country))
         else:
-            country = models.Country.objects.get(
+            country = models.Country.objects.create(
                 vk_id=item['id'], name=item['title']
             )
 
