@@ -32,7 +32,7 @@ class Region(VKPlace):
     """VK.com country region."""
 
     country = models.ForeignKey(
-        Country, related_name='regions', verbose_name=_('Country')
+        Country, related_name='regions', on_delete=models.CASCADE, verbose_name=_('Country')
     )
 
     class Meta:
@@ -45,7 +45,7 @@ class City(VKPlace):
     """VK.com city."""
 
     region = models.ForeignKey(
-        Region, related_name='cities', verbose_name=_('Region')
+        Region, related_name='cities', on_delete=models.CASCADE, verbose_name=_('Region')
     )
     area = models.CharField(_('Area'), max_length=255, null=True, blank=True)
 
