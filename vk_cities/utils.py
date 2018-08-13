@@ -10,15 +10,15 @@ from . import models
 logger = logging.getLogger(__name__)
 
 
-def download(country_codes, language, update=False):
-    countries = download_countries(country_codes, language, update)
-    regions = download_regions(countries, language, update)
-    download_cities(regions, language, update)
+def download(country_codes, language, token, update=False):
+    countries = download_countries(country_codes, language, token, update)
+    regions = download_regions(countries, language, token, update)
+    download_cities(regions, language, token, update)
 
 
-def download_countries(codes, language, update=False):
+def download_countries(codes, language, token, update=False):
     """Download countries from VK.com and save to database."""
-    API = vklancer.api.API()
+    API = vklancer.api.API(token=token)
     kwargs = {'lang': language.split('-')[0].lower()}
     countries = []
 
@@ -47,8 +47,8 @@ def download_countries(codes, language, update=False):
     return countries
 
 
-def download_regions(countries, language, update=False):
-    API = vklancer.api.API()
+def download_regions(countries, language, token, update=False):
+    API = vklancer.api.API(token=token)
     kwargs = {'lang': language.split('-')[0].lower()}
     regions = []
 
@@ -82,8 +82,8 @@ def download_regions(countries, language, update=False):
     return regions
 
 
-def download_cities(regions, language, update=False):
-    API = vklancer.api.API()
+def download_cities(regions, language, token, update=False):
+    API = vklancer.api.API(token=token)
     language = language.split('-')[0].lower()
     cities = []
 

@@ -23,4 +23,5 @@ class Command(BaseCommand):
         utils.download(
             getattr(settings, 'VK_CITIES_COUNTRIES', []),
             getattr(settings, 'LANGUAGE_CODE', 'en'),
+            getattr(settings, 'VK_APP_TOKEN', None)
         )

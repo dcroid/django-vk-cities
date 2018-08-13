@@ -22,6 +22,7 @@ Package using next settings variable:
 ```python
 LANGUAGE_CODE = 'en-US'  # places names language
 VK_CITIES_COUNTRIES = ['RU', 'UA']  # countries codes from ISO 3166-1
+VK_APP_TOKEN = '<token>' # token from vk app (create from https://vk.com/apps?act=manage)
 ```
 
 ## Tests ##
