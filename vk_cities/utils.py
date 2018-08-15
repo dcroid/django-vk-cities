@@ -115,7 +115,7 @@ def download_cities(regions, language, token, update=False):
             for item in items:
                 kwargs = {
                     'name': item['title'],
-                    'region': region,
+                    'region': region if 'important' not in item else '',
                     'area': item.get('area', '')
                 }
 
