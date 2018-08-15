@@ -99,10 +99,11 @@ def download_cities(regions, language, token, update=False):
             if country_id != region.country.vk_id:
                 data_witch_important = API.database.getCities(
                     country_id=region.country.vk_id,
-                    offset=page * 1000, count=1000, lang=language
+                    offset=0, count=1000, lang=language
                 )
 
-                witch_important = [item for item in data_witch_important if 'important' in item]
+                witch_important = [item for item in data_witch_important['response']['items']
+                                   if 'important' in item['response']['items']]
                 items = [*data['response']['items'], *witch_important]
             else:
                 items = data['response']['items']
