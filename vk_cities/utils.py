@@ -87,6 +87,9 @@ def download_cities(regions, language, token, update=False):
     language = language.split('-')[0].lower()
     cities = []
     country_id = 0
+
+
+
     for region in regions:
         page = 0
 
@@ -115,7 +118,7 @@ def download_cities(regions, language, token, update=False):
             for item in items:
                 kwargs = {
                     'name': item['title'],
-                    'region': region if 'important' not in item else '',
+                    'region': region,
                     'area': item.get('area', '')
                 }
 
