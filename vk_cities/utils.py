@@ -97,6 +97,7 @@ def download_cities(regions, language, token, update=False):
             )
 
             if country_id != region.country.vk_id:
+                country_id = region.country.vk_id
                 data_witch_important = API.database.getCities(
                     country_id=region.country.vk_id,
                     offset=0, count=1000, lang=language
