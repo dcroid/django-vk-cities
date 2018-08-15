@@ -103,7 +103,7 @@ def download_cities(regions, language, token, update=False):
                 )
 
                 witch_important = [item for item in data_witch_important['response']['items']
-                                   if 'important' in item['response']['items']]
+                                   if 'important' in item]
                 items = [*data['response']['items'], *witch_important]
             else:
                 items = data['response']['items']
