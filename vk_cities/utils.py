@@ -105,7 +105,7 @@ def download_cities(regions, language, token, update=False):
                 kwargs = {
                     'name': item['title'],
                     'region': region,
-                    'area': item.get('area')
+                    'area': item.get('area', '')
                 }
 
                 queryset = models.City.objects.filter(vk_id=item['id'])
