@@ -86,7 +86,7 @@ def download_cities(regions, language, token, update=False):
     API = vklancer.api.API(token=token)
     language = language.split('-')[0].lower()
     cities = []
-
+    country_id = 0
     for region in regions:
         page = 0
 
@@ -96,7 +96,16 @@ def download_cities(regions, language, token, update=False):
                 offset=page*1000, count=1000, lang=language
             )
 
-            items = data['response']['items']
+            if country_id != region.country.vk_id:
+                data_witch_important = API.database.getCities(
+                    country_id=region.country.vk_id,
+                    offset=page * 1000, count=1000, lang=language
+                )
+
+                witch_important = [item for item in data_witch_important if 'important' in item]
+                items = [*data['response']['items'], *witch_important]
+            else:
+                items = data['response']['items']
 
             if not items:
                 break
